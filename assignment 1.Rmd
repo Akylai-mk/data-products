@@ -1,0 +1,24 @@
+---
+title: "Leaflet course project"
+author: "Akylai Mk"
+date: "9/16/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Date: 16.09.2020
+
+```{r, echo=FALSE}
+library(leaflet)
+df <- data.frame(lat = runif(200, min = 42, max = 43), 
+                 lng = runif(200, min = 74, max = 75))
+df %>% 
+        leaflet() %>%
+        addTiles() %>%
+        addMarkers(clusterOptions = markerClusterOptions())
+```
+
+
