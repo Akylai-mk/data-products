@@ -1,0 +1,25 @@
+---
+title: 'Data Products Assignment: Plotly'
+author: "Akylai Mk"
+date: "September 19, 2020"
+output: ioslides_presentation
+
+---
+
+
+
+
+
+## Slide with Plotly
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+library(plotly); library(tidyr); library(dplyr)
+data("EuStockMarkets")
+
+stocks <- as.data.frame(EuStockMarkets) %>%
+        gather(index, price) %>%
+        mutate(time = rep(time(EuStockMarkets), 4))
+plot_ly(stocks, x=~time, y=~price, color=~index, type = "scatter", mode = "lines")
+```
+
+## Thank you!
